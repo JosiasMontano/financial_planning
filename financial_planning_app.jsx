@@ -43,4 +43,36 @@ function FinancialApp() {
             .filter(transaction => transaction.type === 'expense')
             .reduce((total, transaction) => total + parseFloat(transaction.amount), 0);
     };
+    
+    // Manejar el envío del formulario
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        if (!description || !amount || !category) {
+            alert('Por favor, complete todos los campos');
+            return;
+        }
+
+        const newTransaction = {
+            id: Date.now(),
+            description,
+            amount: parseFloat(amount),
+            type,
+            category,
+            date: new Date().toLocaleDateString()
+        };
+
+        setTransactions([...transactions, newTransaction]);
+        
+        // Limpiar el formulario
+        setDescription('');
+        setAmount('');
+        setCategory('');
+    };
+
+    // Eliminar una transacción
+    const deleteTransaction = (id) => {
+        setTransactions(transactions.filter(transaction => transaction.id !== id));
+    };
 }
+ReactDOM.render(<FinancialApp />, document.getElementById('root'));
