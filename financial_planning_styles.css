@@ -6,8 +6,8 @@
 }
 
 body {
-    background-color: #f5f7fa;
-    color: #333;
+    background-color: #6585b6;
+    color: #684040;
     line-height: 1.6;
 }
 
@@ -44,7 +44,7 @@ body {
 }
 
 .card {
-    background: white;
+    background: rgb(196, 238, 255);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -76,7 +76,7 @@ body {
 }
 
 .form-section {
-    background: white;
+    background: rgb(195, 248, 255);
     border-radius: 10px;
     padding: 25px;
     margin-bottom: 30px;
@@ -111,7 +111,7 @@ body {
 .form-group input, .form-group select {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #080a0a;
     border-radius: 5px;
     font-size: 1rem;
 }
@@ -130,4 +130,102 @@ body {
 
 .btn:hover {
     background: #3c58a8;
+}
+
+.transactions {
+    background: rgb(206, 244, 255);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.transactions h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.transaction-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-details {
+    flex: 2;
+}
+
+.transaction-amount {
+    flex: 1;
+    text-align: right;
+    font-weight: bold;
+}
+
+.income {
+    color: #27ae60;
+}
+
+.expense {
+    color: #e74c3c;
+}
+
+.transaction-category {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-top: 5px;
+}
+
+.delete-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+.chart-container {
+    margin-top: 30px;
+    background: rgb(217, 255, 255);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.chart-container h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.pie-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
 }
