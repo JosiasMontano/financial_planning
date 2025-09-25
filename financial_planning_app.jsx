@@ -74,5 +74,24 @@ function FinancialApp() {
     const deleteTransaction = (id) => {
         setTransactions(transactions.filter(transaction => transaction.id !== id));
     };
+    
+    // Obtener categorías para el tipo seleccionado
+    const getCategories = () => {
+        if (type === 'income') {
+            return ['Salario', 'Freelance', 'Inversiones', 'Regalos', 'Otros'];
+        } else {
+            return ['Alimentación', 'Transporte', 'Vivienda', 'Entretenimiento', 'Salud', 'Educación', 'Otros'];
+        }
+    };
+
+    // Generar colores para el gráfico
+    const generateColors = (count) => {
+        const colors = [];
+        for (let i = 0; i < count; i++) {
+            const hue = (i * 137.5) % 360; // Distribución áurea de colores
+            colors.push(`hsl(${hue}, 70%, 60%)`);
+        }
+        return colors;
+    };
 }
 ReactDOM.render(<FinancialApp />, document.getElementById('root'));
