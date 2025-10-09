@@ -93,5 +93,34 @@ function FinancialApp() {
         }
         return colors;
     };
+     return (
+         <div className="container">
+            <header className="header">
+                <h1>Planificador Financiero Personal</h1>
+                <p>Gestiona tus finanzas y alcanza tus metas financieras</p>
+            </header>
+            
+            <div className="dashboard">
+                <div className="card">
+                    <h2>Balance Total</h2>
+                    <p className={`amount ${calculateBalance() >= 0 ? 'positive' : 'negative'}`}>
+                        ${calculateBalance().toFixed(2)}
+                    </p>
+                </div>
+                
+                <div className="card">
+                    <h2>Ingresos</h2>
+                    <p className="amount positive">${calculateIncome().toFixed(2)}</p>
+                </div>
+                
+                <div className="card">
+                    <h2>Gastos</h2>
+                    <p className="amount negative">${calculateExpenses().toFixed(2)}</p>
+                </div>
+            </div>
+        </div>
+     );
+
+    
 }
 ReactDOM.render(<FinancialApp />, document.getElementById('root'));
