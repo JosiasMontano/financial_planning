@@ -93,7 +93,8 @@ function FinancialApp() {
         }
         return colors;
     };
-     return (
+
+    return (
          <div className="container">
             <header className="header">
                 <h1>Planificador Financiero Personal</h1>
@@ -118,9 +119,40 @@ function FinancialApp() {
                     <p className="amount negative">${calculateExpenses().toFixed(2)}</p>
                 </div>
             </div>
+
+            <div className="form-section">
+                <h2>Agregar Transacción</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-row">
+                        <div className="form-group">
+                            <label htmlFor="description">Descripción</label>
+                            <input
+                                type="text"
+                                id="description"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                placeholder="Ej: Pago de nómina"
+                            />
+                        </div>
+                        
+                        <div className="form-group">
+                            <label htmlFor="amount">Monto</label>
+                            <input
+                                type="number"
+                                id="amount"
+                                value={amount}
+                                onChange={(e) => setAmount(e.target.value)}
+                                placeholder="0.00"
+                                step="0.01"
+                            />
+                        </div>
+                    </div>
+                    <button type="submit" className="btn">Agregar Transacción</button>
+                </form>
+            </div>
         </div>
+                                   
      );
 
-    
 }
 ReactDOM.render(<FinancialApp />, document.getElementById('root'));
