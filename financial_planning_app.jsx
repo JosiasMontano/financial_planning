@@ -147,9 +147,39 @@ function FinancialApp() {
                             />
                         </div>
                     </div>
+                    
+                    <div className="form-row">
+                        <div className="form-group">
+                            <label htmlFor="type">Tipo</label>
+                            <select
+                                id="type"
+                                value={type}
+                                onChange={(e) => setType(e.target.value)}
+                            >
+                                <option value="income">Ingreso</option>
+                                <option value="expense">Gasto</option>
+                            </select>
+                        </div>
+                        
+                        <div className="form-group">
+                            <label htmlFor="category">Categoría</label>
+                            <select
+                                id="category"
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
+                            >
+                                <option value="">Seleccione una categoría</option>
+                                {getCategories().map(cat => (
+                                    <option key={cat} value={cat}>{cat}</option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+                    
                     <button type="submit" className="btn">Agregar Transacción</button>
                 </form>
             </div>
+            
         </div>
                                    
      );
