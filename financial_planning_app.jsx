@@ -178,6 +178,34 @@ function FinancialApp() {
                     
                     <button type="submit" className="btn">Agregar Transacción</button>
                 </form>
+                 <div className="transactions">
+                <h2>Historial de Transacciones</h2>
+                <div className="transaction-list">
+                    {transactions.length === 0 ? (
+                        <p>No hay transacciones registradas</p>
+                    ) : (
+                        transactions.map(transaction => (
+                            <div key={transaction.id} className="transaction-item">
+                                <div className="transaction-details">
+                                    <strong>{transaction.description}</strong>
+                                    <div className="transaction-category">
+                                        {transaction.category} - {transaction.date}
+                                    </div>
+                                </div>
+                                <div className={`transaction-amount ${transaction.type === 'income' ? 'income' : 'expense'}`}>
+                                    {transaction.type === 'income' ? '+' : '-'}${transaction.amount.toFixed(2)}
+                                    <button 
+                                        className="delete-btn"
+                                        onClick={() => deleteTransaction(transaction.id)}
+                                    >
+                                        Eliminar
+                                    </button>
+                                </div>
+                            </div>
+                        ))
+                    )}
+                </div>
+            </div>
             </div>
             
         </div>
@@ -186,3 +214,4 @@ function FinancialApp() {
 
 }
 ReactDOM.render(<FinancialApp />, document.getElementById('root'));
+
